@@ -1,0 +1,1189 @@
+/************************
+J HITTLE SEWING CUSTOM STYLES
+Owen Graham
+************************/
+/*Reset CSS */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* import the font family from Google's api */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow);
+
+
+
+/* set that font as default for the body, plus the top red border */
+body{ font-family: 'PT Sans', sans-serif; 
+		margin:0 auto; 
+		border-top:8px solid #d21c04; 
+		height: 100%;
+		width: 100%;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+/*************************
+PAGE HEADER STYLES
+*************************/
+/* This rule places the header image div and sizes it */
+.header_image {
+	background: url(../images/banner.jpg) no-repeat center; 
+	background-size: cover;
+	width: 100%;
+	height: 200px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Size and color the background of the blue search bar */
+.search_bar {
+	background-color: #298FDE;
+	height: 60px;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 20px;
+	text-align: center;
+	position: relative;
+}
+
+#search_input_wrap {
+	width: 1000px;
+	height: 60px;
+	margin-left: calc((100% - 1000px) * .5); 
+	padding: 0 5%;
+	position: relative;
+}
+
+
+/* space out the different search elements*/
+.search_bar_element {
+	float: left;
+	height: 60px;
+	width: 30%;
+	position: relative;
+}
+
+
+/* the actual search text field */
+.search_input {
+	position: relative;
+	font-size: 16px;	
+	font-weight: bold;
+	float: left;
+	margin-top: 10px;
+	height: 35px;
+	width: 250px;
+	border-width: 3px;
+	border-style: inset;
+	padding-left: 5px;
+}
+
+/* makes the annoying dropdown arrow disappear on the search field autocomplete */
+ input::-webkit-calendar-picker-indicator {
+  display: none;
+} 
+
+/************************
+DEFAULT BODY STYLES
+************************/
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+
+/************************
+LANDING PAGE STYLES
+************************/
+
+#user_registration {
+	text-align: center;
+	height: auto;
+	font-size: 1.2em;
+	margin: 20px 0;
+}
+
+#user_registration input {
+	font-size: 1.2em;
+}
+
+#landing_headline_wrap {
+	text-align: center;
+}
+
+#user_reg_left {
+	box-sizing: border-box;
+	float:left;
+	display: inline-block;
+	max-width: 40%;
+	margin: 5%;
+	text-align: left;
+	padding-left: 50px;
+}
+
+#reg_form {
+	display: inline-block;
+	height: auto;
+}
+
+#user_reg_right {
+	box-sizing: border-box;
+	float: left;
+	display: inline-block;
+	width: 40%;
+	margin: 5%;
+}
+
+#user_reg_right p {
+	padding: 20px 0;
+}
+
+
+#user_reg_left input {
+	margin-left: 50px;
+}
+
+
+/********************
+AUTOCOMPLETE LISTS
+********************/
+
+
+/* Styling the autocomplete list for Product Search */
+.autocomplete_list {
+	position: absolute;
+	margin-top: 45px;
+	z-index: 5;
+	border: 1px solid black;
+	width: 90%;
+}
+
+
+.autocomplete_list li { 
+	padding: 5px;
+	list-style: none;
+	background: linear-gradient(#ECEDEE, #DBDCDD); 
+	text-align: left;
+	padding-left: 5px;
+	cursor: pointer;
+
+}
+
+.autocomplete_list li:hover { 
+	color: white;
+	text-decoration: underline;
+	background: #D21C04; 
+}
+
+.autocomplete_list a {
+	color: black;
+	text-decoration: none;
+}
+
+.autocomplete_list a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+#quickAddAClist {
+	position: relative; 
+	margin-top:  -45px;
+}
+
+#qa_ac_list {
+	position: absolute;
+	margin-left: 25px;
+	width: 90%;
+}
+/***********************
+MAIN CONTENT AREA
+***********************/
+#main_content {
+	display: block;
+	width: 1000px;
+	height: auto;   			/* Causes main content area to get as tall as needed to display content */
+	min-height: 500px;	  /* Makes sure area does not totally disappear if nothing is selected */
+	margin: 0 auto;
+	border-top:8px solid #d21c04; /* top red border */
+	position: relative;
+}
+
+
+/************************
+CATEGORY LIST
+************************/
+
+/* left hand nav, including the "Categories" title, positioned and sized*/
+.category_list {
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	float: left;
+	background: #ECEDEE;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+/* font and colors for the red "Categories" title */
+
+.category_list h1 {
+	margin: 0;
+	padding: 5px 30px 20px;
+	color: white;
+	background-color: #D21C04;	
+	border-radius: 0 0 8px 8px;
+	font-size: 31px;
+	font-weight: normal;
+}
+
+
+/* The menu items display in the #accordion div */
+
+#accordion {
+	display: block;
+	padding: 0;
+	height: calc(100% - 66px);     /* set max height for accordion here*/
+	overflow-y:scroll;    /* adds scrollbar */
+	position: relative;
+}
+
+
+#accordion ul {
+	padding: 0;
+	height: 100%;
+
+} 
+
+#accordion ul li h3 {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: normal;
+	font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+#accordion ul li {
+	margin: 0;
+	padding: none;
+	list-style: none;
+	background: linear-gradient(#ECEDEE, #DBDCDD); 
+	border: 1px solid transparent;
+}
+
+#accordion ul li ul {
+	padding: none;
+	list-style: none;
+	height: auto;
+	background: linear-gradient(#ECEDEE, #DBDCDD); 
+	padding: 3px;
+}
+
+#accordion ul li ul li a{
+	margin-left: 5px;
+	text-decoration: none;
+}
+
+#accordion ul li ul li a:hover {
+	text-decoration: underline;
+}
+
+#accordion ul ul {
+	display: none;
+}
+
+#accordion ul li h3:hover {
+	text-decoration: underline;
+}
+
+
+/************************
+NAV AND RESULTS
+************************/
+.nav_and_results {
+	width: 78%;
+	float: right;
+}
+
+nav {
+	float: right;
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+	margin-bottom: 5px;	
+}
+
+nav ul li {
+	display: inline-block;
+	color: #298FDE;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+nav a {
+	padding: 2px 30px 10px;
+	border-radius: 0 0 5px 5px;
+	text-decoration: none;
+	color: #298FDE;
+}
+
+nav a:visited {
+	color: #298FDE;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: white;
+	background-color: #D21C04;
+	text-decoration: none;
+}
+
+.nav_and_results h1 {
+	color: #298FDE;
+	display: inline-block;	
+	background-color: #ECEDEE;
+	width: 95%;
+	border-radius: 8px;
+	text-align: center;
+	margin-top: 20px;
+	padding: 5px;
+	font-size: 31px;
+
+}
+
+/*Results per page selector*/
+#rpp {
+	text-align: right;
+	padding: 5px 20px;
+}
+
+
+/*Pagination at bottom*/
+#page_numbers {
+	text-align: center;
+	padding: 10px;
+}
+
+#page_numbers a {
+	margin: 0 5px;
+	color: blue;
+}
+
+#page_numbers a:visited {
+	color: blue;
+}
+
+.currentPage {
+	margin: 0 7px;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+/****************************
+PRODUCT LISTINGS IN RESULTS DIV
+*****************************/
+.product_listing {
+	width: 18%;
+	/*float: left; */
+	display: inline-block;
+	background-color: #ECEDEE;
+	margin: 25px;
+	padding: 25px;
+	height: 350px;
+	text-align: center;
+	vertical-align: top;
+	word-wrap: normal;
+}
+
+.product_listing img {
+	width: auto;
+	height: 50%;	
+	max-width: 150px;
+	max-height: 200px;
+	
+}
+
+.listing_text {
+	display: inline-block;
+	margin: 5px 0;
+	font-size: 0.8em;
+	height: 25%;
+}
+
+.listing_form {
+	height: 25%;
+}
+
+.form_placeholder {
+	padding-top: 42px;
+}
+
+.add_to_cart_button {
+	box-sizing: border-box;
+	display: inline-block;
+	color: white;	
+	background-color: #D21C04;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 10px;
+	font-size: 1em;
+	height: 33px;
+}
+
+.select_colors_button {
+	box-sizing: border-box;
+	box-shadow: 1px 1px gray;
+	display: inline-block;
+	color: white;	
+	background-color: #D21C04;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 1em;
+	height: 33px;
+	text-decoration: none;
+	padding-top: 8px;
+}
+
+
+.quantity {
+	width: 20px;
+	margin: 5px;
+}
+
+#results {
+	height: auto;
+}
+
+
+#results ul {
+	display: block;
+	height: auto;
+}
+
+#page_numbers {
+	display: block;
+}
+
+/****************************
+SPECIAL FEATURES DISPLAY
+****************************/
+.special_listing {
+	border: 1px solid black;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #ECEDEE;
+	box-sizing: border-box;
+	margin-top: 5%;
+	width: 90%;
+	text-align: center;
+	font-size: 1em;
+	display: table;
+}
+
+.special_listing h2 {
+	width: 100%;
+	border: 1px solid black;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	font-weight: bold;
+	color: white;
+	padding-top: 10px;
+	background-color: #298FDE;
+	height: 5%;
+	display: table-caption;
+}
+
+.special_listing img {
+	display: block;
+	width: auto;
+	max-width: 90%;
+	height: auto;
+	max-height: 400px;
+	padding: 15px;
+	margin: auto;
+	vertical-align: middle;
+}
+
+.special_listing p {
+	display: block;
+	box-sizing: border-box;
+	padding: 5%;
+	margin: 0;
+}
+
+.special_content {
+	height: 90%;
+	padding: 0;
+	margin: 0;
+	display: table-row-group;
+	text-align: center;
+}
+
+.special_subsection {
+	display: table-cell;
+	width: 33%;
+	margin: 0;
+	height: 100%;
+	vertical-align: top;
+	border-right: 1px solid black;
+}
+
+.specials_overflow {
+	border: 1px solid black;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #ECEDEE;
+	box-sizing: border-box;
+	margin-bottom: 5%;
+	width: 90%;
+	text-align: center;
+	font-size: 1em;
+}
+
+.sublisting {
+	display: block;
+	border: 1px solid gray;
+	width: 100%;
+	padding: 5px;
+	height: 50%;
+	box-sizing: border-box;	
+}
+
+/*************************
+ADD TO CART TOOLTIP THINGY
+*************************/
+
+.addTip {
+	background-color: #FFEA85;
+	border_radius: 8px;
+}
+
+/***************************
+OTHER MAIN CONTENT AREA STYLES
+***************************/
+
+#headline h1 {
+	font-weight: normal;
+}
+
+.old_header {
+	display: block;
+	max-width: 90%;
+	margin: 5%;
+}
+
+
+/**************************
+SHOPPING CART TABLES (also styles colors/size table)
+**************************/
+
+ table {
+	border: 2px solid black;
+	border-radius: 3px;
+	table-layout: fixed;
+	width: 780px;
+	margin: 5px;
+	display: table;
+}
+
+th, td {
+	border-bottom: 1px solid black;
+	text-align: center;
+	height: 40px;
+	padding: 5px 0;
+}
+
+/* makes zebra stripe table*/
+tr:nth-child(even) {background-color: #e8e8e8}
+
+
+/*.id_col {
+ width: 60px;
+}*/
+
+
+.desc_col {
+ width: 60%;
+}
+
+.qty_col {
+ width: 30px;
+}
+
+/* quick add  inputs */
+#quick_add input {
+	height: 30px;
+	font-size: 1em;
+}
+
+#quick_add_desc {
+ width: 90%;
+ padding-left: 4px;
+}
+
+#qa_qty {
+ width: 40px;	
+}
+
+#cart_desc_col {
+	width: 50%;
+}
+
+.qty {
+ width: 28px;
+}
+
+.cart_button {
+	height: 36px;
+	border-radius: 10px;
+	background-color: #298dfe;
+	color: white;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 65px;
+}
+
+
+/**************
+ADDRESS INPUT
+*************/
+
+
+#address {
+	width: 100%;
+	height: 400px;
+	
+}
+
+#address h1 {
+	display: block;
+}
+
+.addy_box {
+	display: inline-block;
+	vertical-align: text-top;
+	box-sizing: border-box;
+	margin: 2%;	
+	width: 40%;
+	height: 280px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.addy_box input {
+	margin: 0px;
+	padding: 0;
+	width: 180px;
+}
+
+.addy_box select {
+	margin: 0px;
+	padding: 0;
+	width: 180px;
+}
+
+.addy_box label {
+	width: 83px;
+	text-align: left;
+	display: inline-block; 
+}
+
+#sab_label {
+	width: 180px;
+	text-align: right;
+}
+
+#email_label {
+	width: 180px;
+	text-align: center;
+}
+
+#addy_email {
+	width: 250px;
+}
+
+.addy_box p {
+	margin: 2px;
+}
+
+.addy_box button {
+	margin: 0;
+	padding: 0;
+}
+
+#addy_cxl {
+	display: none;
+}
+
+#addy_submit {
+	width: 65px;
+	margin-right: 30px;
+}
+
+#checkout_button {
+	display: inline-block;
+}
+
+#same_as_bill {
+	width: auto;
+	margin-left: 10px;
+}
+.addy_box h2 {
+	font-weight: bold;
+	margin: 8px;
+}
+
+
+/* has to go at the end */
+.hidden_div {
+	display: none;
+}
+
+
+/**********************
+CONFIRMATION PAGE
+**********************/
+.conf_box {
+	box-sizing: border-box;
+	display: inline-block;
+	float: left;
+	width: 30%;
+	margin: 5%;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.conf_box h2 {	
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.conf_box p {
+	margin: 10px;
+}
+
+#conf_form {
+	display: block;
+	clear: both;
+	text-align: center;
+}
+
+
+/*************************
+FOOTER STYLES
+*************************/
+
+.footer {
+	clear: both;
+	display:block;
+	background-color: #298FDE;
+	border-top:12px solid #d21c04;
+	color: #FAFAFA;
+	height: 250px;
+	width: 100%;
+	text-align: center;
+	font-size: 0.9em;
+}
+
+.footer h1 {
+	font-size: 1.5em;
+	font-weight: bold;
+	text-decoration: underline;
+	margin: 15px 0;
+}
+
+.footer p {
+	padding: 15px 0;
+}
+
+#footer_wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#company_info {
+	float: left;		
+	width: 72%
+}
+
+
+#contact_info {
+	float: right;
+	width: 25%;
+}
+
+#copyright_line {
+	display: block;
+	background-color: #03589A; 
+	width: 100%;
+	height: 50px;
+	color: #FAFAFA;
+}
+
+#copyright_line p {
+	padding: 20px 100px;
+	font-size: 0.9em;
+}
+
+
+
+
+
+
+
+
+
+/******************************************
+MOBILE STYLES
+******************************************/
+
+
+
+
+
+@media screen and (max-width: 769px) {
+/*************************
+PAGE HEADER STYLES
+*************************/
+
+.header_image {
+	height: 30px;
+
+}
+
+/* Size and color the background of the blue search bar */
+.search_bar {
+	height: 130px;
+}
+
+#search_input_wrap {
+	width: 100%;
+	display: block;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+
+/* space out the different search elements*/
+.search_bar_element {
+	height: 30px;
+	width: 80%;
+	display: block;
+	float: none;
+	margin-left: auto;
+}
+
+/* the actual search text field */
+.search_input {
+	width: auto;
+}
+
+
+/************************
+LANDING PAGE
+*************************/
+#user_reg_left {
+	float:none;
+	display: block;
+	max-width: 90%;
+	padding: 5px;
+}
+
+#user_reg_right {
+	box-sizing: border-box;
+	float: none;
+	display: block;
+	width: 90%;
+	margin: 5%;
+}
+
+
+#user_reg_right p {
+	padding: 20px 0;
+}
+
+
+#user_reg_left input {
+	margin-left: 5px;
+
+}
+
+#landing_email {
+	width: 90%;
+}
+
+
+
+
+
+
+
+/**************************
+MAIN CONTENT AREA
+**************************/
+.category_list {
+	height: auto;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+#accordion {
+	display: none;
+}
+
+
+
+
+
+/* Main nav and results */
+#main_content {
+	width: 100%;
+}
+
+
+.nav_and_results {
+	width: 100%;
+	float: none;
+	display: block;
+}
+
+nav {
+	float: none;
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+	margin-bottom: 5px;	
+}
+
+nav ul li {
+	display: block;
+	padding: 5px 0;
+}
+
+#results {
+	text-align: center;
+}
+/*************************
+PRODUCT LISTINGS
+*************************/
+.product_listing {
+	box-sizing: border-box;
+	width: 80%;
+	display: block;
+	background-color: #ECEDEE;
+	margin: 10%;
+	padding: 25px 0;
+	height: auto;
+}
+
+.product_listing img {
+	width: auto;
+	margin: auto;
+	height: 50%;
+	max-height: 200px;	
+	display: block;
+	
+}
+
+.listing_text {
+	display: block;
+	margin: 5px 0;
+	font-size: 0.8em;
+	height: auto;
+}
+
+.listing_form {
+	height: auto;
+}
+
+
+/****************************
+SPECIAL FEATURES DISPLAY
+****************************/
+
+.special_listing {
+	margin-left: 15px;
+}
+
+.special_subsection {
+	display: table-row-group;
+	width: 90%;
+	border: none;
+}
+
+
+
+/********************
+Tables and cart
+********************/
+table {
+	width: 90%;
+	margin: auto;
+}
+
+
+#cart_table tr:nth-of-type(6n+1) {
+	margin-top: 20px;
+	border-top: 5px solid black;
+	background-color: lightblue;
+}
+
+.qty_cell:before {
+	content: 'Quantity: ';
+}
+
+.price_cell:before {
+	content: 'Price: ';
+}
+
+.sub_cell:before {
+	content: 'Subtotal: ';
+}
+
+#quick_add_desc {
+	width: 90%;
+}
+
+#qa_ac_list {
+	margin-left: 15px;
+}
+
+/*********************
+ADDRESS STUFF
+**********************/
+#address {
+	height: auto;
+}
+
+.addy_box {
+	display: block;
+	height: auto;
+	width: 80%;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.addy_box input {
+	margin: 0px;
+	padding: 0;
+	width: 180px;
+	display: block;
+}
+
+#addy_submit {
+	display: inline-block;
+}
+
+.addy_box label {
+	width: 83px;
+	text-align: left;
+	display: block; 
+}
+
+#addy_email {
+	width: 90%;
+}
+
+/* has to go at the end */
+.hidden_div {
+	display: none;
+}
+
+
+/***********************
+FOOTER
+***********************/
+.footer {
+	height: auto;
+}
+
+#footer_wrap {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#company_info {
+	float: none;		
+	width: 90%;
+	margin-left: 5%;
+}
+
+
+#contact_info {
+	float: none;
+	width: 90%;
+	margin-left: 5%;
+}
+
+#copyright_line {
+	height: auto;
+}
+
+#copyright_line p {
+	padding: 5px;
+}
+
+
+}
+
+
+
+

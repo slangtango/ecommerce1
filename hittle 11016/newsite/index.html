@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--This is the home page for Hittle Sewing, by Owen Graham, 2015. Built on Bootstrap 3.3.5 -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome to J. Hittle, Wholesale Sewing Supplier</title>
+
+	 <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+	<!-- HEADER AREA WITH IMAGE AND SEARCH BAR-->
+	<div class="header_image">
+	</div>
+	<div class="search_bar">
+		<form method="get" name="search_form">
+			<div class="search_bar_element">
+				 <input type="text" name="search" placeholder="Search By Merchant Name" class="search_input" />
+				 <input type="submit" value="Search" />
+			</div>
+			<div class="search_bar_element">
+			<!--This div exists as a spacer between the two search bar elements -->			
+			</div>
+			<div class="search_bar_element">
+				 <input type="text" name="search" placeholder="Search By Product Number" class="search_input" />
+				 <input type="submit" value="Search" />
+			</div>	
+		</form>
+	</div> 
+	<!-- end of search bar -->
+	
+	<!-- MAIN CONTENT AREA -->
+	<div class="main_content">
+
+		<div class="category_list">
+			<h1>Categories</h1>
+
+			<div id="accordion">
+				<ul>
+					<li>
+						<h3>Item Type A</h3>
+						<ul>
+							<li>Item A1</li>
+							<li>Item A2</li>
+							<li>Item A3</li>
+							<li>Item A4</li>						
+						</ul>
+					</li>
+					<li>
+						<h3>Item Type B</h3>
+						<ul>
+							<li>Item B1</li>
+							<li>Item B2</li>
+							<li>Item B3</li>
+							<li>Item B4</li>						
+						</ul>
+					</li>
+					<li>
+						<h3>Item Type C</h3>
+						<ul>
+							<li>Item C1</li>
+							<li>Item C2</li>
+							<li>Item C3</li>
+							<li>Item C4</li>						
+						</ul>
+					</li>
+					<li>
+						<h3>Item Type D</h3>
+						<ul>
+							<li>Item D1</li>
+							<li>Item D2</li>
+							<li>Item D3</li>
+							<li>Item D4</li>						
+						</ul>
+					</li>
+
+				</ul>					
+			</div>
+
+		</div>	
+		<div class="nav_and_results">
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Shopping Cart</a></li>
+					<li><a href="#">Special Offers</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+			</nav>
+			<div id="headline">
+				<h1>Over 10,000 notions and sewing products!</h1>			
+			</div>
+
+
+<!-- PHP Code to display products in the center of the page goes in this div, "results"-->
+			<div id="results">
+	
+
+
+			</div>		
+
+<!-- End of "results" div -->
+
+	
+		</div>
+
+	</div>
+	<div class="clear"></div>
+	<!-- FOOTER AREA WITH COMPANY INFO AND CONTACT INFO -->
+	<div class="footer">
+		<div id="footer_wrap">
+			<div id="company_info">
+				<h1>Company Information</h1>
+				<p>We have been in business for over 20 years, providing our customers the lowest possible prices for their sewing supplies. 					Products in the online catalog are available to the public, however we do add a shipping charge to all orders under 							$125.00 Internet Sales Only</p>
+
+				<p>We do not accept orders by Telephone or Mail-In orders</p>
+
+				<p>To navigate the online catalog search by Company Brand name or by Product Type of item in the left hand navigation 						window. If you are not sure about a product, check it out at a local sewing source to make sure it is what you need 						before you order it. We will replace defective merchandise with like merchandise if you notify us within ten (10) days of 					receiving your order.</p>
+			</div>
+
+			<div id="contact_info">
+				<h1>Contact Us</h1>
+				<p>John Hittle
+					<br>
+					11703 Pierce Way
+					<br>
+					Louisville, KY 40272-5062
+				</p>
+				<p>
+					Phone: 502-937-1503 FREE
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="copyright_line">
+			<p>Copyright 2015 jhittlesewing.com | All rights reserved.</p>
+	</div>
+
+
+<!-- TASKS 
+	1. Create header, footer (all constant)
+	2. create left hand nav, auto-populate from database -->
+
+	<!-- ADDITIONAL SCRIPT IMPORTS -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	 <!-- Script for Accordion menu -->
+	 <script src="js/accordion.js"></script>
+
+  </body>
+</html>

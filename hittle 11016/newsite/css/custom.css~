@@ -1,0 +1,240 @@
+/************************
+J HITTLE SEWING CUSTOM STYLES
+
+These styles are intended to complement the Bootstrap styling framework
+for this project only. They should be loaded after Bootstrap to ensure proper cascade
+order. -- Owen Graham
+
+************************/
+@import url(http://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow);
+
+body{ font-family: 'PT Sans', sans-serif; margin:0 auto; border-top:8px solid #d21c04; }
+
+
+/*************************
+PAGE HEADER STYLES
+*************************/
+.header_image {
+	background: url(../images/banner.jpg) no-repeat center; 
+	background-size: cover;
+	width: 100%;
+	height: 237px;
+}
+
+.search_bar {
+	background-color: #298FDE;
+	height: 60px;
+	padding: 0 15%;
+	margin-bottom: 20px;
+}
+
+.search_bar_element {
+	float: left;
+	width: 30%;
+	padding: 15px 0;
+}
+
+.search_bar_element input {
+	height: 30px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+
+.search_input {
+	width: 200px;
+	border-width: 3px;
+	border-style: inset;
+}
+
+/***********************
+MAIN CONTENT AREA
+***********************/
+.main_content {
+	display: block;
+	width: 1000px;
+	height: auto;
+	min-height: 500px;	
+	margin: 0 auto;
+	border-top:8px solid #d21c04;
+}
+
+
+/************************
+CATEGORY LIST
+************************/
+.category_list {
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	float: left;
+	background: #ECEDEE;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.category_list h1 {
+	margin: 0;
+	padding: 5px 30px 20px;
+	color: white;
+	background-color: #D21C04;	
+	border-radius: 0 0 8px 8px;
+	font-size: 31px;
+	font-weight: normal;
+}
+
+#accordion {
+	display: block;
+	padding: 0;
+	height: 500px;     /* set max height for accordion here*/
+	overflow-y:scroll;    /* adds scrollbar */
+}
+
+#accordion ul {
+	padding: 0;
+}
+
+#accordion ul li {
+	padding: none;
+	list-style: none;
+	background: linear-gradient(#ECEDEE, #DBDCDD); 
+}
+
+#accordion ul li ul {
+	padding: none;
+	list-style: none;
+	background: linear-gradient(#ECEDEE, #DBDCDD); 
+}
+
+#accordion ul ul {
+	display: none;
+}
+
+#accordion ul li:hover {
+	text-decoration: underline;
+}
+
+
+#accordion li:active ul {
+	display: block;
+}
+
+/************************
+NAV AND RESULTS
+************************/
+.nav_and_results {
+	width: 78%;
+	float: right;
+}
+
+nav {
+	float: right;
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;	
+}
+
+nav ul li {
+	display: inline-block;
+	color: #298FDE;
+	font-size: 17px;
+}
+
+nav a {
+	padding: 2px 30px 10px;
+	border-radius: 0 0 5px 5px;
+	text-decoration: none;
+}
+
+nav a:visited {
+	color: #298FDE;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: white;
+	background-color: #D21C04;
+	text-decoration: none;
+}
+
+.nav_and_results h1 {
+	color: #298FDE;
+	display: inline-block;	
+	background-color: #ECEDEE;
+	width: 95%;
+	border-radius: 8px;
+	text-align: center;
+	margin-top: 10px;
+	padding: 5px;
+	font-size: 31px;
+
+}
+
+/***************************
+OTHER MAIN CONTENT AREA STYLES
+***************************/
+
+#headline h1 {
+	font-weight: normal;
+}
+
+/*************************
+FOOTER STYLES
+*************************/
+
+.footer {
+	clear: both;
+	display:block;
+	background-color: #298FDE;
+	border-top:12px solid #d21c04;
+	color: #FAFAFA;
+	height: 250px;
+	width: 100%
+	text-align: center;
+	font-size: 0.9em;
+}
+
+.footer h1 {
+	text-decoration: underline;
+}
+
+
+#footer_wrap {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#company_info {
+	float: left;		
+	width: 72%
+}
+
+
+#contact_info {
+	float: right;
+	width: 25%;
+}
+
+#copyright_line {
+	display: block;
+	background-color: #03589A; 
+	width: 100%;
+	height: 50px;
+	color: #FAFAFA;
+}
+
+#copyright_line p {
+	padding: 20px 100px;
+	font-size: 0.9em;
+}
+
+
+
+
+
+
+
+

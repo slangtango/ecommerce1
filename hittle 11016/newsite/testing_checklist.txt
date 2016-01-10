@@ -1,0 +1,70 @@
+Cross Browser Testing Checklist
+
+This checklist is for testing the functions of the J Hittle Sewing website, to verify that all functions
+work in all browsers and device combinations.
+
+Page by Page:
+
+Landing page
+ - Appearance - is the layout properly aligned? All elements clearly readable?
+ - Function - Does the form submit work? If the email field is blank, or no input checked, it should NOT work.
+
+
+Catalog:
+General appearance: layout is properly aligned, no stray text or wandering elements
+
+Search bar
+	Appearance - layout and alignment good in all device windows? Do the autocomplete drop downs display when user
+		enters info, and go away when they click elsewhere on the page?
+	Function - do the autocomplete links work? What about if the user types a word in the box and hits enter?
+
+Category List
+	Appearance - does the accordion menu open and close properly? 
+	Function - are the links good? Do they cause products to be displayed?
+
+Navigation - do the links to shopping cart, FAQ, Contacts, specials, and home all work?
+
+Product Display
+	-	If user is not logged in, buttons should say "More Info" and clicks should redirect to Landing Page
+	- Products display in proper alignment, with images and text
+	- Do results paginate correctly? Can you change the number of diplayed results?
+	- Do Colors/Sizes links bring up a new product listing?
+	- Do the Add to Cart buttons work? Does the "Added to Cart" tooltip appear when button is clicked?
+	- if no image is found, is there a "no image available" or similar message?
+
+Shopping Cart
+ 	- Does the cart recognize and remember the user?
+	- Does it display prompts to login if no user recognized? Does it display the "cart empty" message if it's empty?
+	- Does the Quick Add autocomplete dropdown appear and disappear as needed?
+	- Does the Quick Add update button work, including cart auto-refresh?
+	- Do the Change Qty and Remove buttons function correctly, including cart auto-refresh?
+	- Does Sales Tax display only for customer orders where billing address is in KY?
+	- Does Small Order Charge apply to anything under $125, and display correctly
+
+	- Do address change forms accept input and update when cart is refreshed?
+	- Does the "same as billing" checkbox populate the shipping form?
+	- Is the user prevented from going to checkout until all forms are filled out?
+
+Confirmation page:
+	 - Does order info display correctly?
+	- Does the correct thank you message appear when user returns from paypal?
+
+
+Browser Usage Stats November 2015 (from W3Schools)
+
+Chrome 67.4%, (64.0% Chrome 43 or newer)
+IE / Edge - 6.8% (6.5% IE 9 or newer)
+Firefox 19.2% (17.3 % FF 38 or newer)
+Safari 3.9% (3.6% Safari 7 or newer)
+Opera 1.5% (0.7% Opera 33, the newest)
+
+
+
+
+
+
+
+
+
+
+
