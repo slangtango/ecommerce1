@@ -1,9 +1,18 @@
-// DISPLAY PRODUCTS  // 
+///////////////////////
+//							//
+// DISPLAY PRODUCTS  //
+//							//
+/////////////////////// 
 
 
-// This little JS file operates the animation of the accordion menu on the side of the page, and handles
-// changes to the "display X products per page" drop down selector
+// This little JS file is the miscellaneous script file
+// It runs a few different page functions
 
+// 1: the animation of the accordion menu on the side of the page
+// 2: handles changes to the "display X products per page" drop down selector
+// 3: handles hiding and showing the category list in mobile display
+// 4: handles the "Back to top" button
+// 5: handles the display and hiding of tooltips
 
 //// ACCORDION  ///
 $(document).ready(function(){
@@ -45,21 +54,59 @@ $(document).ready(function(){
 
 // When the Category heading is clicked in mobile
 $(document).on('click', '#clicktoshow', function (event) {
-	console.log('tapped');
+
+//if the accordion is not displayed, show it
 	if (!$('#accordion').is(":visible")) {
 		$('#accordion').show();
-
+	//add #results to the links, so that user is automatically scrolled down
+	// far enough to see the product when the page reloads
 		$('#accordion a').each(function() {
 			this.href += '/#results';
-			console.log('added');		
+		
 		});
-
+	//if it was already displayed, hide it
 	} else {
 		$('#accordion').hide();
 
 	}
 
 });
+
+
+/// BACK TO TOP BUTTON ////
+
+
+    //Listen for the button click event
+    $('.to-top-btn').on('click', function(e) {
+        $('body, html').stop().animate({scrollTop: 0}, 'slow', 'swing');
+        e.preventDefault();
+    });
+ 
+    //Show the button when the page scrolls to about 1000 pixels
+    //change the value to your desired offset
+    $(window).scroll(function() {
+        if($(window).scrollTop() > 1000){
+            //show the button when scroll offset is greater than 400 pixels
+            $('.to-top-btn').fadeIn('slow');
+        }else{
+            //hide the button if scroll offset is less than 400 pixels
+            $('.to-top-btn').fadeOut('slow');
+        }
+    });
+
+
+/// TOOL TIPS ///
+
+    //Listen for the tooltip click event
+    $(document).on('click', '.tooltip_title', function(e) {
+		//if it's not visible, show it, and vice-versa
+		if (!$('.tooltip').is(":visible")) {
+    	$('.tooltip').show();   
+			} else {
+    	$('.tooltip').hide();    
+			}
+        });
+
 
 
 

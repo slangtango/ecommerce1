@@ -70,6 +70,11 @@ html {
 	box-sizing: border-box;
 }
 
+h2 {	
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
 /*************************
 PAGE HEADER STYLES
 *************************/
@@ -84,7 +89,7 @@ PAGE HEADER STYLES
 }
 
 /* Size and color the background of the blue search bar */
-.search_bar {
+.search_bar, .search_bar_inactive {
 	background-color: #298FDE;
 	height: 60px;
 	padding: 0;
@@ -130,6 +135,17 @@ PAGE HEADER STYLES
  input::-webkit-calendar-picker-indicator {
   display: none;
 } 
+
+/* Log In and Log Out link in search bar*/
+#log_link {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	vertical-align: middle;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 20px;
+}
 
 /************************
 DEFAULT BODY STYLES
@@ -191,7 +207,40 @@ LANDING PAGE STYLES
 	margin-left: 50px;
 }
 
+#privacy {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+	 opacity: 0; 
+	 z-index: 9999;
+	 -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
 
+#privacy:target {
+    opacity: 1;
+	pointer-events: auto;
+}
+
+#privacy > div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+	 max-height: 600px;
+	overflow-y: scroll; 
+    border-radius: 10px;
+    background: #999;
+}
+
+#invalid_tip {
+	color: red;
+	display: none;
+}
 /********************
 AUTOCOMPLETE LISTS
 ********************/
@@ -210,6 +259,7 @@ AUTOCOMPLETE LISTS
 .autocomplete_list li { 
 	padding: 5px;
 	list-style: none;
+	background: #ECEDEE; /* old browsers */
 	background: linear-gradient(#ECEDEE, #DBDCDD); 
 	text-align: left;
 	padding-left: 5px;
@@ -255,6 +305,7 @@ MAIN CONTENT AREA
 	border-top:8px solid #d21c04; /* top red border */
 	position: relative;
 }
+
 
 
 /************************
@@ -314,14 +365,14 @@ CATEGORY LIST
 
 #accordion ul li {
 	margin: 0;
-	padding: none;
+	padding: 0;
 	list-style: none;
 	background: linear-gradient(#ECEDEE, #DBDCDD); 
 	border: 1px solid transparent;
 }
 
 #accordion ul li ul {
-	padding: none;
+	padding: 0;
 	list-style: none;
 	height: auto;
 	background: linear-gradient(#ECEDEE, #DBDCDD); 
@@ -355,7 +406,6 @@ NAV AND RESULTS
 }
 
 nav {
-	float: right;
 	text-align: center;
 }
 
@@ -397,6 +447,7 @@ nav a:hover {
 	border-radius: 8px;
 	text-align: center;
 	margin-top: 20px;
+	margin-left: 2.5%;
 	padding: 5px;
 	font-size: 31px;
 
@@ -428,6 +479,18 @@ nav a:hover {
 	margin: 0 7px;
 	font-weight: bold;
 	font-size: 1.1em;
+}
+
+.to-top-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    text-decoration:none;
+    background: #D21C04;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
 }
 
 /****************************
@@ -490,9 +553,9 @@ PRODUCT LISTINGS IN RESULTS DIV
 	border-radius: 5px;
 	padding: 5px;
 	font-size: 1em;
-	height: 33px;
+	height: 35px;
 	text-decoration: none;
-	padding-top: 8px;
+	padding-top: 3px;
 }
 
 
@@ -532,7 +595,7 @@ SPECIAL FEATURES DISPLAY
 }
 
 .special_listing h2 {
-	width: 100%;
+	/* width: 100%; */
 	border: 1px solid black;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -540,7 +603,7 @@ SPECIAL FEATURES DISPLAY
 	color: white;
 	padding-top: 10px;
 	background-color: #298FDE;
-	height: 5%;
+	height: 50px;
 	display: table-caption;
 }
 
@@ -568,6 +631,7 @@ SPECIAL FEATURES DISPLAY
 	margin: 0;
 	display: table-row-group;
 	text-align: center;
+	width: 100%;
 }
 
 .special_subsection {
@@ -575,11 +639,13 @@ SPECIAL FEATURES DISPLAY
 	width: 33%;
 	margin: 0;
 	height: 100%;
+	max-height: 200px;
 	vertical-align: top;
 	border-right: 1px solid black;
 }
 
 .specials_overflow {
+	display: table;
 	border: 1px solid black;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -591,24 +657,59 @@ SPECIAL FEATURES DISPLAY
 	font-size: 1em;
 }
 
+
+
 .sublisting {
 	display: block;
 	border: 1px solid gray;
-	width: 100%;
+	width: auto;
 	padding: 5px;
-	height: 50%;
+	height: auto;
 	box-sizing: border-box;	
 }
 
+.dbl_section {
+	width: 66%;
+}
+
+.sub_4 {
+	display: table-cell;
+	margin: 0;
+	padding: 10px;
+	width: auto;
+}
+
+.type_5 {
+	font-weight: bold;
+	color: white;
+	padding-top: 10px;
+	background-color: #298FDE;
+	border-radius: 10px;
+}
 /*************************
-ADD TO CART TOOLTIP THINGY
+TOOLTIPS
 *************************/
 
 .addTip {
+	position: relative;
+	z-index: 20;
 	background-color: #FFEA85;
-	border_radius: 8px;
+	border-radius: 8px;
 }
 
+.tooltip_title {
+	font-size: 0.75em;
+	color: #298FDE;
+	cursor: pointer;
+}
+
+.tooltip {
+	display: none;
+	font-size: 0.75em;
+	background-color: #298FDE;
+	color: white;
+	width: 200px;
+}
 /***************************
 OTHER MAIN CONTENT AREA STYLES
 ***************************/
@@ -623,7 +724,19 @@ OTHER MAIN CONTENT AREA STYLES
 	margin: 5%;
 }
 
+.about  {
+	text-align: center;
+}
 
+.about p {
+	margin: 2% 8%;
+}
+
+hr {
+	background-color: #298FDE;
+	height: 5px;
+	border: 0 none;
+}
 /**************************
 SHOPPING CART TABLES (also styles colors/size table)
 **************************/
@@ -703,7 +816,7 @@ ADDRESS INPUT
 
 #address {
 	width: 100%;
-	height: 400px;
+	height: auto;
 	
 }
 
@@ -717,7 +830,7 @@ ADDRESS INPUT
 	box-sizing: border-box;
 	margin: 2%;	
 	width: 40%;
-	height: 280px;
+	height: auto;
 	padding: 10px;
 	border: 1px solid black;
 }
@@ -791,34 +904,81 @@ ADDRESS INPUT
 	display: none;
 }
 
+/* empty class for incomplete inputs */
+.empty {
+	border: 2px solid red;
+}
 
 /**********************
 CONFIRMATION PAGE
 **********************/
+.confirmation p {
+	max-width: 800px;
+	margin: 2% 8%;
+}
+
+.conf_h1 {
+	text-align: center;
+	background-color: #ECEDEE;
+	color: #298FDE;
+	width: 80%;
+	max-width: 800px;
+	margin: 2% 8%;
+}
+
 .conf_box {
 	box-sizing: border-box;
-	display: inline-block;
+	display: block;
 	float: left;
-	width: 30%;
-	margin: 5%;
-	padding: 10px;
-	border: 1px solid black;
+	width: 80%;
+	max-width: 800px;
+	margin: 2% 8% 2%;
+	padding: 0;
+	border: 2px solid black;
+	border-radius: 20px;
+	overflow: hidden;
 }
 
 .conf_box h2 {	
 	font-size: 1.1em;
 	font-weight: bold;
+	background-color: #298FDE;
+	color: white;
+	padding: 10px;
+	text-align: center;
 }
 
 .conf_box p {
 	margin: 10px;
 }
 
-#conf_form {
-	display: block;
-	clear: both;
+#conf_button_box {
 	text-align: center;
 }
+
+.conf_button {
+	background-color: #298FDE;
+	box-sizing: border-box;
+	color: white;
+	width: auto;
+	height: 80px;
+	font-size: 1.3em;
+	text-decoration: none;
+	padding: 25px;
+	display: inline-block;
+	border-radius: 20px;
+	vertical-align: center;
+	text-align: center;
+	border: 2px outset buttonface;
+	margin: 10px 50px;
+}
+
+
+#conf_form {
+	display: inline-block;
+}
+
+
 
 
 /*************************
@@ -905,7 +1065,7 @@ PAGE HEADER STYLES
 
 /* Size and color the background of the blue search bar */
 .search_bar {
-	height: 130px;
+	height: 170px;
 }
 
 #search_input_wrap {
@@ -931,6 +1091,9 @@ PAGE HEADER STYLES
 	width: auto;
 }
 
+.search_bar_inactive {
+	height: 25px;
+}
 
 /************************
 LANDING PAGE
@@ -966,6 +1129,12 @@ LANDING PAGE
 }
 
 
+#privacy > div {
+    width: 90%;
+    position: relative;
+    margin: 5% auto;
+	 max-height: 90%;
+}
 
 
 
@@ -979,14 +1148,12 @@ MAIN CONTENT AREA
 	width: 100%;
 	display: block;
 	text-align: center;
+	cursor: pointer;
 }
 
 #accordion {
 	display: none;
 }
-
-
-
 
 
 /* Main nav and results */
@@ -1019,6 +1186,17 @@ nav ul li {
 #results {
 	text-align: center;
 }
+
+.to-top-btn {
+    position: fixed;
+    bottom: 0px;
+	 right: 0px;
+	 width: 100%;
+	text-align: center;
+}
+
+
+
 /*************************
 PRODUCT LISTINGS
 *************************/
@@ -1068,6 +1246,9 @@ SPECIAL FEATURES DISPLAY
 }
 
 
+.specials_overflow {
+	margin-left: 15px;
+}
 
 /********************
 Tables and cart
@@ -1104,6 +1285,11 @@ table {
 	margin-left: 15px;
 }
 
+.tooltip {
+	display: block;
+	width: 90%;
+	margin: auto;
+}
 /*********************
 ADDRESS STUFF
 **********************/
@@ -1145,6 +1331,19 @@ ADDRESS STUFF
 .hidden_div {
 	display: none;
 }
+
+/***********************
+CONFIRMATION PAGE
+************************/
+.conf_button {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	padding: 10px;
+	display: inline-block;
+	margin: 10px auto;
+}
+
 
 
 /***********************

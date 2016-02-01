@@ -1,5 +1,16 @@
 <?php
-//new user script
+////////////////////////////////
+//										//
+//			NEW ADDRESS				//
+//										//
+////////////////////////////////
+
+// This script is called by section 4 of addtocart.js. It handles adding and updating
+// address information for users. It updates ht_address, and also ht_customer_email.
+
+
+// Take note that all these fields receive user input data and MUST be santized vs SQL injection
+
 //connect to database
 include "connection.php";
 
@@ -15,8 +26,8 @@ include "connection.php";
 	$addy_zip = $_GET['addy_zip'];
 	$addy_phone = $_GET['addy_phone'];
 
-//ALL INPUT MUST BE SANITIZED!!
-	//update primary email
+
+// Update primary email to input value
 	$SQL = "UPDATE ht_customer_email SET Cust_Primary = :email WHERE Cust_ID = :user_id";
 	$stmt = $database->prepare($SQL);
 	$stmt->bindParam(':email', $prim_email);
@@ -25,7 +36,7 @@ include "connection.php";
 	$stmt->execute();
 
 
-//Check to see if this user already had address info
+//Check to see if this user already had a record in ht_address
 	$SQL = "SELECT * FROM ht_address WHERE Address_Cust_ID = :user_id";
 	$stmt = $database->prepare($SQL);
 	$stmt->bindParam(':user_id', $user_id);
@@ -33,9 +44,9 @@ include "connection.php";
 	$stmt->execute();
 	$result = $stmt->fetchAll();
 
-if ($result == null) {
-	
+
 //if new address (none on file)
+if ($result == null) {
 	//update address table
 	$SQL = "INSERT INTO ht_address (Address_Billing_Fname, Address_Billing_Lname, Address_Billing, Address_Billing_2, Address_Billing_City, Address_Billing_State, Address_Billing_Zip, Address_Billing_Phone, Address_Cust_ID)";
 	$SQL .= "VALUES (:addy_fname, :addy_lname, :addy1, :addy2, :addy_city, :addy_state, :addy_zip, :addy_phone, :user_id)";

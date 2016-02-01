@@ -1,4 +1,7 @@
-<!-- This file generates the standard footer for all pages on the J Hittle Sewing website-->
+<!-- FOOTER -->
+
+<!-- This file generates the standard footer for all pages on the J Hittle Sewing website -->
+<!-- Include it on any page you want to carry the standard footer -->
 
 	<div class="footer">
 		<div id="footer_wrap">
@@ -10,7 +13,9 @@
 
 				<p>We do not accept orders by Telephone or Mail-In orders</p>
 
-				<p>To navigate the online catalog search by Company Brand name or by Product Type of item in the left hand navigation 						window. If you are not sure about a product, check it out at a local sewing source to make sure it is what you need 						before you order it. We will replace defective merchandise with like merchandise if you notify us within ten (10) days of 					receiving your order.</p>
+				<p>To navigate the online catalog search by Company Brand name or by Product Type of item in the left hand navigation 						
+					window. If you are not sure about a product, check it out at a local sewing source to make sure it is what you need 			
+					before you order it. Click to view <a href='index.php?about=1'>our returns policy</a>.</p>
 			</div>
 
 			<div id="contact_info">
@@ -32,5 +37,5 @@
 	</div>
 
 	<div id="copyright_line">
-						<p>Copyright 2015 jhittlesewing.com | All rights reserved.</p>
+				<p>Copyright 2015 jhittlesewing.com | All rights reserved.</p>
 	</div>

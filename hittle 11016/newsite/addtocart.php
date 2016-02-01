@@ -56,69 +56,81 @@ include 'connection.php';
 
 //Adding a new line item
 				else if ($add == 1) {
-
-				//check to see if it is a regular catalog item or special item
-				$first = substr($item_id, 0, 1);
-
-				//if it's a special
-				if (($first == 's') OR ($first == 'f')) {
-
-				$SQL = "SELECT Specials_Retail_Price, Specials_Wholesale_Price, Specials_Net_Price, Specials_Special_Price FROM ht_specials WHERE Specials_Item_ID = '".$item_id."'";
+			
+				//check to see if same item already exists in this order
+				$SQL = "SELECT * FROM ht_cart_order WHERE Cart_Order_Item_ID = '".$item_id."' AND Cart_Order_ID = '".$order_id."'"; 
 				$result = $database->query($SQL);
-				$result_arr = $result->fetch();
 
-				//strip out zero prices
-				$final_price = 100000; //set high to start
+					//if it exists, do an update, adding the new qty rather than a new line item
+					if ($result->rowCount() > 0) {
+						$line_item = $result->fetch();
+						$line_ID = $line_item['Cart_Order_Entry_ID'];				
+						$prev_qty = $line_item['Cart_Order_Qty'];
+						$add_qty = $quantity;
+						$new_qty = $prev_qty + $add_qty;
+					
+					$SQL = "UPDATE ht_cart_order SET Cart_Order_Qty = '".$new_qty."' WHERE Cart_Order_Entry_ID = '".$line_ID."'";
+					$database->exec($SQL);
 
-				foreach ($result_arr as $price) {
-					if (($price > 0) && ($price < $final_price)) {
-					$final_price = $price;
-					}
-				}
+					} else {
+
+					//If there are no existing instances of this item in cart, make a new entry
+
+					//check to see if it is a regular catalog item or special item
+					$first = substr($item_id, 0, 1);
+
+					//if it's a special
+						if (($first == 's') OR ($first == 'f')) {
+
+						$SQL = "SELECT Specials_List_Price FROM ht_specials WHERE Specials_Item_ID = '".$item_id."'";
+						$result = $database->query($SQL);
+						$result_arr = $result->fetch();
+
+						$price = $result_arr[0];
 				
-				//Write new item to the cart, assigning the correct order id, user id, item id, qunatity, and price
-				$SQL = "INSERT INTO ht_cart_order";
-				$SQL .= "(Cart_Order_ID, Cart_Cust_ID, Cart_Order_Item_ID, Cart_Order_Qty, Cart_Order_List_Price)"; 
-				$SQL .=" VALUES (:order_id, :cust_id, :item_id, :qty, :price)";
-				$stmt = $database->prepare($SQL); //Sanitize statement to prevent SQL injection	
-				$stmt->bindParam(':order_id', $order_id);
-				$stmt->bindParam(':cust_id', $user_id);
-				$stmt->bindParam(':item_id', $item_id);
-				$stmt->bindParam(':qty', $quantity);
-				$stmt->bindParam(':price', $final_price);
+						//Write new item to the cart, assigning the correct order id, user id, item id, qunatity, and price
+						$SQL = "INSERT INTO ht_cart_order";
+						$SQL .= "(Cart_Order_ID, Cart_Cust_ID, Cart_Order_Item_ID, Cart_Order_Qty, Cart_Order_List_Price)"; 
+						$SQL .=" VALUES (:order_id, :cust_id, :item_id, :qty, :price)";
+						$stmt = $database->prepare($SQL); //Sanitize statement to prevent SQL injection	
+						$stmt->bindParam(':order_id', $order_id);
+						$stmt->bindParam(':cust_id', $user_id);
+						$stmt->bindParam(':item_id', $item_id);
+						$stmt->bindParam(':qty', $quantity);
+						$stmt->bindParam(':price', $price);
 
-				$stmt->execute();
+						$stmt->execute();
 
 
-				}
+						}
 	
-				//else for regular catalog items
-				else {
-				//Start by requesting price information for this item_id from database
-				$SQL = "SELECT List_Price FROM ht_item WHERE Item_ID = '".$item_id."'";
-				$result = $database->query($SQL);
-				$result_arr = $result->fetch();
-				$price = $result_arr[0];
+					//else for regular catalog items
+						else {
+						//Start by requesting price information for this item_id from database
+						$SQL = "SELECT List_Price FROM ht_item WHERE Item_ID = '".$item_id."'";
+						$result = $database->query($SQL);
+						$result_arr = $result->fetch();
+						$price = $result_arr[0];
 
 
-				//Write new item to the cart, assigning the correct order id, user id, item id, qunatity, and price
-				$SQL = "INSERT INTO ht_cart_order";
-				$SQL .= "(Cart_Order_ID, Cart_Cust_ID, Cart_Order_Item_ID, Cart_Order_Qty, Cart_Order_List_Price)"; 
-				$SQL .=" VALUES (:order_id, :cust_id, :item_id, :qty, :price)";
-				$stmt = $database->prepare($SQL); //Sanitize statement to prevent SQL injection	
-				$stmt->bindParam(':order_id', $order_id);
-				$stmt->bindParam(':cust_id', $user_id);
-				$stmt->bindParam(':item_id', $item_id);
-				$stmt->bindParam(':qty', $quantity);
-				$stmt->bindParam(':price', $price);
+						//Write new item to the cart, assigning the correct order id, user id, item id, qunatity, and price
+						$SQL = "INSERT INTO ht_cart_order";
+						$SQL .= "(Cart_Order_ID, Cart_Cust_ID, Cart_Order_Item_ID, Cart_Order_Qty, Cart_Order_List_Price)"; 
+						$SQL .=" VALUES (:order_id, :cust_id, :item_id, :qty, :price)";
+						$stmt = $database->prepare($SQL); //Sanitize statement to prevent SQL injection	
+						$stmt->bindParam(':order_id', $order_id);
+						$stmt->bindParam(':cust_id', $user_id);
+						$stmt->bindParam(':item_id', $item_id);
+						$stmt->bindParam(':qty', $quantity);
+						$stmt->bindParam(':price', $price);
 
-				$stmt->execute();
+						$stmt->execute();
 		
+						}
 				}
-				}
+			}
 
 
-
-	//if bad info for some reason
+	//if bad info for some reason, prevent any code from running
 				else {die();}
 ?>

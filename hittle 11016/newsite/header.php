@@ -1,5 +1,15 @@
 <?php
-//Include this file anywhere you want the standard page header
+////////////////////
+//						//
+//  HEADER 			//
+//						//
+////////////////////
+
+// This file imports the stylesheet, header image, and blue search bar, but NOT the search boxes
+
+// Index.php has it's own custom version that includes the search boxes
+
+// Include this file anywhere you want the standard page header and CSS styles
 
 ?>
 <html lang="en">
@@ -19,7 +29,7 @@
 	<!-- HEADER AREA WITH IMAGE AND SEARCH BAR-->
 	<div class="header_image">
 	</div>
-	<div class="search_bar">
+	<div class="search_bar_inactive">
 		
 	</div> 
 

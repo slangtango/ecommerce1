@@ -37,8 +37,22 @@ $.ajaxSetup({ cache: false }); //prevents the AJAX cache. This line is required 
 
 $(document).on('submit', '.atc_form', function(event) {
 
+
 //Check to see if the form has an ID. This will be used to see if it is the Quick Add.
 	var id = $(this).attr('id');
+//Save this form and quantity input as variables for later use
+	var $thisQty = $(this).find(".quantity");
+	//prevent adds of quantity 0
+	$qty = $thisQty.val();
+	//must be a nonzero integer
+		console.log($qty);
+	if ((parseInt($qty) != $qty) || ($qty == 0)) {
+		console.log("empty qty");
+		return false;
+	}
+
+	var $thisForm = $(this);
+
 
 //if the form submitted was the Quick Add, get the user id and order id from the hidden form inputs 
 	if (id == 'qa') {
@@ -46,6 +60,7 @@ $(document).on('submit', '.atc_form', function(event) {
 			$user_id = $('#qa_user_id').val();
 			$order_id = $('#qa_order_id').val();
 	}
+
 
 //Prevent the form submit from reloading the page
 	event.preventDefault();
@@ -56,9 +71,7 @@ $(document).on('submit', '.atc_form', function(event) {
 
 	console.log(targetUrl);
 
-//Save this form and quantity input as variables for later use
-	var $thisQty = $(this).children(".quantity");
-	var $thisForm = $(this);
+
 
 //The console.log statement prints the target URL to the browser console for debugging checks - this line can be removed
 	// console.log(targetUrl);
@@ -111,6 +124,7 @@ $(document).on('submit', '.atc_form', function(event) {
 
 //The following code runs when the user clicks on an element with the class "delete_item" - i.e, Remove buttons in cart
 	$(document).on('click', '.delete_item', function(event) {
+		event.preventDefault();
 		console.log('removed');
 // Start by getting the line item Entry ID, the key for any listing in ht_cart_order. It is stored as the "value" attribute
 // of the Remove button
@@ -183,12 +197,23 @@ $(document).on('submit', '.atc_form', function(event) {
 			var userID = $('#qa_user_id').val();
 			var orderID = $('#qa_order_id').val();
 
+//Capture the new quantity from the input text box and display as plain text
+		var newqty = $('#input' + id).val();
+	// prevent 0 or non-integer entries
+		if ((parseInt(newqty) != newqty) || (newqty == 0)) {
+		console.log("empty qty");
+		return false;
+		}
+
+
+		$('#qty' + id).html(newqty);
+
+
+
 //Change the button from "Done" back to "Change Quantity"
 		$(this).parent().html("<button class='change_qty' value='"+id+"'>Change Qty</button>");
 
-//Capture the new quantity from the input text box and display as plain text
-		var newqty = $('#input' + id).val();
-		$('#qty' + id).html(newqty);
+
 
 //Submit change to database
 		var targetUrl = "addtocart.php?update=1&entryID=" + id + "&order_id=" + orderID + "&quantity=" + newqty
@@ -232,23 +257,30 @@ $(document).on('submit', '#addy_form', function(event) {
 	event.preventDefault();
 	console.log('adding_address');
 
-//Validate that form is complete
-	//var $missing;
-	// go through each input and check if they are empty
-	//$("#addy_form input").each(function() {
-	//	if ($(this).val() == "") {
-		
- 		//if empty, set missing to 1 to trigger the alert
-	//	$missing = 1;
-	//		}
-	//});		
 
-//If the form was not complete, warn user and prevent script from continuing by using "return"
-//if ($missing == 1) {
-//		alert("Form is not complete");
-//	return;
-//}
 
+/// FORM VALIDATION BYPASS FOR SAFARI AND IOS ///
+	// set incomplete status to 0
+	var $incomplete = 0;
+	//select all elements in this form with the attribute '[required]'
+$('#addy_form').find('[required]').each(function() {
+
+	//if the input is empty, set incomplete to 1 and add class 'empty' which turns the outline red
+	if ($(this).val() == "") {
+		$incomplete = 1;
+		$(this).addClass('empty');
+	} else {
+		//reset any which have had data added, in case the user has to be prompted more than once
+		$(this).removeClass('empty');
+	}
+
+	
+});
+//if any input is incomplete, stop any further action
+if ($incomplete == 1) {
+	console.log('incomplete form');
+	return;
+}
 
 //If everything was OK, keep rolling and send off the request
 //Start by serializing the data from the form
@@ -414,25 +446,31 @@ $(document).on('submit', '#addy_form', function(event) {
 // This script prevents the checkout form from submitting to the confirmation page if the shipping
 // address form is incomplete
 
+//run script when the checkout form submits
 $(document).on('submit', '#checkout_form', function(event) {
 
-//Validate that form is complete
-	//var $missing;
-	
-	//check each input element in the checkout form
-	//$("#checkout_form input").each(function() {
-		// if the input is empty, throw alert and set missing to 1 		
-		//if ($(this).val() == "") {
-		//alert("Form is not complete");
-		//$missing = 1;
-		//	}
-	//});		
+/// FORM VALIDATION BYPASS FOR SAFARI AND IOS ///
+	//set incomplete status to 0
+	var $incomplete = 0;
+	//find all elements in this form with the attribute '[required]' and loop through
+$('#checkout_form').find('[required]').each(function() {
 
-	//if form did not validate completely, prevent page from reloading and stop script
-//if ($missing == 1) {
-//	event.preventDefault();
-//	return;
-//}
+	//if they are empty, set incomplete to 1, and add the empty class, which gives a red border
+	if ($(this).val() == "") {
+		$incomplete = 1;
+		$(this).addClass('empty');
+	} else {
+		//this resets any that have had data added, in case the user has to be prompted more than once
+		$(this).removeClass('empty');
+	}
+
+	
+});
+//if any required input is incomplete, stop any further action
+if ($incomplete == 1) {
+	console.log('incomplete form');
+	return false;
+}
 
 });
 
